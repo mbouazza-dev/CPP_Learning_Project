@@ -7,24 +7,32 @@ Compilez et lancez le programme.
 Allez dans le fichier `tower_sim.cpp` et recherchez la fonction responsable de gérer les inputs du programme.
 Sur quelle touche faut-il appuyer pour ajouter un avion ?
 Comment faire pour quitter le programme ?
+**Pour quitter le programme il faut appuyer sur la touche Q du clavier.**
 A quoi sert la touche 'F' ?
+**La touche F sert a passer la fenetre graphique en plein ecran**
 
 Ajoutez un avion à la simulation et attendez.
 Que est le comportement de l'avion ?
+**L'avion généré aléatoirement atteri sur la piste, roule jusqu'a son point de stationnement, stationne quelque secondes, puis redécolle a nouveau. L'avion sort ensuite de la fenetre et reviens quelque secondes plus tard pour éxécuter le meme schéma**
 Quelles informations s'affichent dans la console ?
+**On retrouve l'identifiant unique de l'avion ainsi que les actions en cours de ce dernier (atterissage, décollage, début d'entretien, fin d'entretien)**
 
 Ajoutez maintenant quatre avions d'un coup dans la simulation.
 Que fait chacun des avions ?
+**Les 3 avions effectuent les meme taches que le premier, en revanche le dernier avion doit attendre en volant autour de l'aéroport qu'une place soit disponible pour son entretien**
 
 ## Analyse du code
 
 Listez les classes du programme à la racine du dossier src/.
 Pour chacune d'entre elle, expliquez ce qu'elle représente et son rôle dans le programme.
+**La classe Aircraft réprésente l'avion ainsi que ses déplacement. La classe tower_sim initialise l'aéroport et gère les commandes au clavier. La classe tower renvoie des informations concernant l'aéroport.**
 
 Pour les classes `Tower`, `Aircaft`, `Airport` et `Terminal`, listez leurs fonctions-membre publiques et expliquez précisément à quoi elles servent.
 Réalisez ensuite un schéma présentant comment ces différentes classes intéragissent ensemble.
 
+**La classe Tower avec la fonctions membre get_instructions ainsi que la classe Airport**
 Quelles classes et fonctions sont impliquées dans la génération du chemin d'un avion ?
+
 Quel conteneur de la librairie standard a été choisi pour représenter le chemin ?
 Expliquez les intérêts de ce choix.
 
