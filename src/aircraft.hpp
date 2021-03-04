@@ -39,6 +39,7 @@ private:
     void add_waypoint(const Waypoint& wp, const bool front);
     bool is_on_ground() const { return pos.z() < DISTANCE_THRESHOLD; }
     float max_speed() const { return is_on_ground() ? type.max_ground_speed : type.max_air_speed; }
+    bool is_paused = false;
 
     Aircraft(const Aircraft&) = delete;
     Aircraft& operator=(const Aircraft&) = delete;
@@ -60,7 +61,7 @@ public:
     float distance_to(const Point3D& p) const { return pos.distance_to(p); }
 
     void display() const override;
-    void move() override;
+    bool move() override;
 
     friend class Tower;
 };

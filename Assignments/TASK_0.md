@@ -46,6 +46,7 @@ Modifiez le programme pour tenir compte de cela.
 Ajoutez deux nouveaux inputs au programme permettant d'augmenter ou de diminuer cette valeur.
 Essayez maintenant de mettre en pause le programme en manipulant ce framerate. Que se passe-t-il ? Fixez le problème.
 
+**SERVICE_CYCLES**
 3) Identifiez quelle variable contrôle le temps de débarquement des avions et doublez-le.
 
 4) Lorsqu'un avion décolle, celui-ci n'est pas retiré du programme.
@@ -64,8 +65,10 @@ Modifiez le code afin d'utiliser un conteneur STL plus adapté. Normalement, à 
 
 ## Théorie
 
+**Avec la liste reserved_terminals qui réserve un terminal libre pour chaque avion**
 1) Comment a-t-on fait pour que seule la classe `Tower` puisse réserver un terminal de l'aéroport ?
 
+**Le paramètre n'est pas passé par référence car on appel la méthode cap_length qui prend un Point3D et renvoie un &Point3D**
 2) En regardant le contenu de la fonction `void Aircraft::turn(Point3D direction)`, pourquoi selon-vous ne sommes-nous pas passer par une réference ?
 Pensez-vous qu'il soit possible d'éviter la copie du `Point3D` passé en paramètre ?
 

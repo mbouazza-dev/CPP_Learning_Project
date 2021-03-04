@@ -88,7 +88,7 @@ void Aircraft::add_waypoint(const Waypoint& wp, const bool front)
     }
 }
 
-void Aircraft::move()
+bool Aircraft::move()
 {
     if (waypoints.empty())
     {
@@ -132,10 +132,14 @@ void Aircraft::move()
                 pos.z() -= SINK_FACTOR * (SPEED_THRESHOLD - speed_len);
             }
         }
-
         // update the z-value of the displayable structure
         GL::Displayable::z = pos.x() + pos.y();
+        if (pos.x() < -3 || pos.x() > 3 || pos.y() < -3 || pos.y() > 3)
+        {
+            return true;
+        }
     }
+    return false;
 }
 
 void Aircraft::display() const

@@ -20,6 +20,23 @@ void keyboard(unsigned char key, int, int)
     }
 }
 
+void change_ticks(int newTick)
+{
+    if (ticks_per_sec + newTick > 120 || ticks_per_sec + newTick < 1)
+    {
+        return;
+    }
+    ticks_per_sec += newTick;
+    if (ticks_per_sec==1)
+    {
+        is_paused=true;
+    }
+    else
+    {
+        is_paused=false;
+    }
+}
+
 void toggle_fullscreen()
 {
     if (fullscreen)
@@ -73,12 +90,25 @@ void display(void)
 
 void timer(const int step)
 {
-    for (auto& item : move_queue)
+    if (is_paused!=true)
     {
-        item->move();
+        for (auto it = move_queue.begin(); it != move_queue.end(); )
+        {
+            auto is_gone = (*it)->move();
+            if (is_gone == true)
+            {
+                it = move_queue.erase(it);
+            }
+            else
+            {
+                ++it;
+            }
+        }
     }
+    
     glutPostRedisplay();
     glutTimerFunc(1000u / ticks_per_sec, timer, step + 1);
+    
 }
 
 void init_gl(int argc, char** argv, const char* title)
