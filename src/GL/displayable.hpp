@@ -20,7 +20,7 @@ protected:
     float z = 0;
 
 public:
-    Displayable(const float z_) : z { z_ } { display_queue.push_back(this); }
+    Displayable(const float z_) : z { z_ } { display_queue.emplace_back(this); }
     virtual ~Displayable() { 
         const auto it = std::find(display_queue.begin(), display_queue.end(), this);
         assert(it != display_queue.end());

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/tower.dir/src/AircraftManager.cpp.o"
   "CMakeFiles/tower.dir/src/GL/opengl_interface.cpp.o"
   "CMakeFiles/tower.dir/src/aircraft.cpp.o"
   "CMakeFiles/tower.dir/src/img/image.cpp.o"

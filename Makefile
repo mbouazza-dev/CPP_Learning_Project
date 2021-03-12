@@ -126,6 +126,33 @@ tower/fast:
 	$(MAKE) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/build
 .PHONY : tower/fast
 
+src/AircraftManager.o: src/AircraftManager.cpp.o
+
+.PHONY : src/AircraftManager.o
+
+# target to build an object file
+src/AircraftManager.cpp.o:
+	$(MAKE) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/AircraftManager.cpp.o
+.PHONY : src/AircraftManager.cpp.o
+
+src/AircraftManager.i: src/AircraftManager.cpp.i
+
+.PHONY : src/AircraftManager.i
+
+# target to preprocess a source file
+src/AircraftManager.cpp.i:
+	$(MAKE) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/AircraftManager.cpp.i
+.PHONY : src/AircraftManager.cpp.i
+
+src/AircraftManager.s: src/AircraftManager.cpp.s
+
+.PHONY : src/AircraftManager.s
+
+# target to generate assembly for a file
+src/AircraftManager.cpp.s:
+	$(MAKE) -f CMakeFiles/tower.dir/build.make CMakeFiles/tower.dir/src/AircraftManager.cpp.s
+.PHONY : src/AircraftManager.cpp.s
+
 src/GL/opengl_interface.o: src/GL/opengl_interface.cpp.o
 
 .PHONY : src/GL/opengl_interface.o
@@ -297,6 +324,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... tower"
+	@echo "... src/AircraftManager.o"
+	@echo "... src/AircraftManager.i"
+	@echo "... src/AircraftManager.s"
 	@echo "... src/GL/opengl_interface.o"
 	@echo "... src/GL/opengl_interface.i"
 	@echo "... src/GL/opengl_interface.s"
