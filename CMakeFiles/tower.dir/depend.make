@@ -50,6 +50,7 @@ CMakeFiles/tower.dir/src/img/image.cpp.o: src/img/image.hpp
 CMakeFiles/tower.dir/src/img/image.cpp.o: src/img/media_path.hpp
 CMakeFiles/tower.dir/src/img/image.cpp.o: src/img/stb_image.h
 
+CMakeFiles/tower.dir/src/main.cpp.o: src/AircraftFactory.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: src/AircraftManager.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: src/GL/displayable.hpp
 CMakeFiles/tower.dir/src/main.cpp.o: src/GL/dynamic_object.hpp
@@ -90,6 +91,7 @@ CMakeFiles/tower.dir/src/tower.cpp.o: src/tower.cpp
 CMakeFiles/tower.dir/src/tower.cpp.o: src/tower.hpp
 CMakeFiles/tower.dir/src/tower.cpp.o: src/waypoint.hpp
 
+CMakeFiles/tower.dir/src/tower_sim.cpp.o: src/AircraftFactory.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: src/AircraftManager.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: src/GL/displayable.hpp
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: src/GL/dynamic_object.hpp

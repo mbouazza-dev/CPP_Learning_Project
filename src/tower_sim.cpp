@@ -13,7 +13,6 @@
 
 using namespace std::string_literals;
 
-const std::string airlines[8] = { "AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY" };
 
 TowerSimulation::TowerSimulation(int argc, char** argv) :
     help { (argc > 1) && (std::string { argv[1] } == "--help"s || std::string { argv[1] } == "-h"s) }
@@ -30,22 +29,11 @@ TowerSimulation::~TowerSimulation()
     delete airport;
 }
 
-void TowerSimulation::create_aircraft(const AircraftType& type)
-{
-    assert(airport); // make sure the airport is initialized before creating aircraft
-    aircraft_manager.add_aircraft(type, airlines, airport);
-}
-
-void TowerSimulation::create_random_aircraft()
-{
-    create_aircraft(*(aircraft_types[rand() % 3]));
-}
-
 void TowerSimulation::create_keystrokes()
 {
     GL::keystrokes.emplace('x', []() { GL::exit_loop(); });
     GL::keystrokes.emplace('q', []() { GL::exit_loop(); });
-    GL::keystrokes.emplace('c', [this]() { create_random_aircraft(); });
+    GL::keystrokes.emplace('c', [this]() { factory.create_random_aircraft(airport, aircraft_manager); });
     GL::keystrokes.emplace('+', []() { GL::change_zoom(0.95f); });
     GL::keystrokes.emplace('-', []() { GL::change_zoom(1.05f); });
     GL::keystrokes.emplace('f', []() { GL::toggle_fullscreen(); });
@@ -84,7 +72,7 @@ void TowerSimulation::launch()
     }
 
     init_airport();
-    init_aircraft_types();
+    factory.init_aircraft_types();
 
     GL::loop();
 }
