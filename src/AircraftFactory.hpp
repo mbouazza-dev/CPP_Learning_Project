@@ -21,7 +21,17 @@ public:
     void create_aircraft(const AircraftType& type, Airport* airport, AircraftManager& aircraft_manager)
     {
         assert(airport); // make sure the airport is initialized before creating aircraft
-        aircraft_manager.add_aircraft(type, airlines, airport);
+        std::string number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+        auto it = std::find(number_used.begin(), number_used.end(), number);
+
+        while (it != number_used.end())
+        {
+            number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+            it = std::find(number_used.begin(), number_used.end(), number);
+        }
+        
+        add_flight_number(number);
+        aircraft_manager.add_aircraft(type, airport, number);
     }
 
     void create_random_aircraft(Airport* airport, AircraftManager& aircraft_manager)
@@ -29,5 +39,8 @@ public:
         create_aircraft(*(aircraft_types[rand() % 3]), airport, aircraft_manager);
     }
 
-    void add_flight_number(const std::string num);
+    void add_flight_number(const std::string num)
+    {
+        number_used.emplace_back(num);
+    }
 };

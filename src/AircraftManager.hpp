@@ -13,5 +13,5 @@ private:
 
 public:
     bool move() override;
-    void add_aircraft(const AircraftType& type, const std::string airlines[8], Airport* airport);
+    void add_aircraft(const AircraftType& type, Airport* airport, std::string number);
 };

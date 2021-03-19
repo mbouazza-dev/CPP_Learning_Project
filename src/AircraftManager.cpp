@@ -14,9 +14,9 @@ bool AircraftManager::move()
     return false;
 }
 
-void AircraftManager::add_aircraft(const AircraftType& type, const std::string airlines[8], Airport* airport)
+void AircraftManager::add_aircraft(const AircraftType& type, Airport* airport, std::string number)
 {
-    const std::string flight_number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+    const std::string flight_number = number;
     const float angle       = (rand() % 1000) * 2 * 3.141592f / 1000.f; // random angle between 0 and 2pi
     const Point3D start     = Point3D { std::sin(angle), std::cos(angle), 0 } * 3 + Point3D { 0, 0, 2 };
     const Point3D direction = (-start).normalize();
