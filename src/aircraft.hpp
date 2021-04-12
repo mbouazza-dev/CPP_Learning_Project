@@ -3,7 +3,7 @@
 #include "GL/displayable.hpp"
 #include "aircraft_types.hpp"
 #include "config.hpp"
-#include "geometry.hpp"
+#include "Point.hpp"
 #include "tower.hpp"
 #include "waypoint.hpp"
 
@@ -19,6 +19,7 @@ private:
     Tower& control;
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal        = false;
+    int fuel                   = 0;
 
     // turn the aircraft to arrive at the next waypoint
     // try to facilitate reaching the waypoint after the next by facing the
@@ -36,7 +37,8 @@ private:
     void arrive_at_terminal();
     // deploy and retract landing gear depending on next waypoints
     void operate_landing_gear();
-    void add_waypoint(const Waypoint& wp, const bool front);
+    template<const bool front>
+    void add_waypoint(const Waypoint& wp);
     bool is_on_ground() const { return pos.z() < DISTANCE_THRESHOLD; }
     float max_speed() const { return is_on_ground() ? type.max_ground_speed : type.max_air_speed; }
     bool is_paused = false;
@@ -46,22 +48,54 @@ private:
 
 public:
     Aircraft(const AircraftType& type_, const std::string_view& flight_number_, const Point3D& pos_,
-             const Point3D& speed_, Tower& control_) :
+             const Point3D& speed_, Tower& control_, int fuel_) :
         GL::Displayable { pos_.x() + pos_.y() },
         type { type_ },
         flight_number { flight_number_ },
         pos { pos_ },
         speed { speed_ },
-        control { control_ }
+        control { control_ },
+        fuel { fuel_ }
     {
         speed.cap_length(max_speed());
     }
 
     const std::string& get_flight_num() const { return flight_number; }
     float distance_to(const Point3D& p) const { return pos.distance_to(p); }
-
+    bool is_circling() const 
+    {
+        if (!has_terminal() && !is_at_terminal)
+        {
+            return true;
+        }
+        return false;
+    }
+    bool has_terminal() const 
+    { 
+        if (waypoints.empty())
+        {
+            return false;
+        }
+        else
+        {
+            return waypoints.back().type == wp_terminal;
+        } 
+    }
+    bool is_low_on_fuel() const 
+    {
+        if (fuel<200)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     void display() const override;
     bool move() override;
+    void refill(int& fuel_stock);
 
     friend class Tower;
+    friend class AircraftManager;
 };

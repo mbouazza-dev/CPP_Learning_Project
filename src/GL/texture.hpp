@@ -2,6 +2,7 @@
 
 #include "../img/image.hpp"
 #include "opengl_interface.hpp"
+#include "../Point.hpp"
 
 #include <GL/glut.h>
 #include <array>
@@ -87,7 +88,7 @@ private:
         glTexCoord2f((tile_idx + tex_shift.x()) * tile_width, tex_shift.y());
 
         const auto vertex = screen_pos + screen_dim * screen_shift * 0.5f;
-        glVertex2fv(vertex.values);
+        glVertex2fv(vertex.values.data());
     }
 };
 

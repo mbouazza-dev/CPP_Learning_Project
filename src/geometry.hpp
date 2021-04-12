@@ -1,9 +1,11 @@
 #pragma once
 
-#include <algorithm>
+/*#include <algorithm>
+#include <numeric>
 #include <array>
 #include <cassert>
 #include <cmath>
+#include <functional>
 #include <iostream>
 
 struct Point2D
@@ -64,7 +66,7 @@ struct Point2D
 
 struct Point3D
 {
-    float values[3] {};
+    std::array<float, 3> values;
 
     Point3D() {}
     Point3D(float x, float y, float z) : values { x, y, z } {}
@@ -80,25 +82,19 @@ struct Point3D
 
     Point3D& operator+=(const Point3D& other)
     {
-        x() += other.x();
-        y() += other.y();
-        z() += other.z();
+        std::transform(values.begin(), values.end(), other.values.begin(), values.begin(), [](float value1, float value2) { return value1+value2; });
         return *this;
     }
 
     Point3D& operator-=(const Point3D& other)
     {
-        x() -= other.x();
-        y() -= other.y();
-        z() -= other.z();
+        std::transform(values.begin(), values.end(), other.values.begin(), values.begin(), [](float value1, float value2) { return value1-value2; });
         return *this;
     }
 
     Point3D& operator*=(const float scalar)
     {
-        x() *= scalar;
-        y() *= scalar;
-        z() *= scalar;
+        std::transform(values.begin(), values.end(), values.begin(), [scalar](float value) { return value*scalar; });
         return *this;
     }
 
@@ -125,7 +121,11 @@ struct Point3D
 
     Point3D operator-() const { return Point3D { -x(), -y(), -z() }; }
 
-    float length() const { return std::sqrt(x() * x() + y() * y() + z() * z()); }
+    float length() const 
+    { 
+
+        return std::sqrt( std::accumulate(values.begin(), values.end(), 0.0, [](float v1, float v2) {return v1+v2*v2; }) ) ;
+    }
 
     float distance_to(const Point3D& other) const { return (*this - other).length(); }
 
@@ -161,4 +161,4 @@ struct Point3D
 inline Point2D project_2D(const Point3D& p)
 {
     return { .5f * p.x() - .5f * p.y(), .5f * p.x() + .5f * p.y() + p.z() };
-}
+}*/

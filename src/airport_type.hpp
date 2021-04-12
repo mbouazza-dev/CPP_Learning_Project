@@ -1,6 +1,6 @@
 #pragma once
 
-#include "geometry.hpp"
+#include "Point.hpp"
 #include "runway.hpp"
 #include "terminal.hpp"
 #include "waypoint.hpp"

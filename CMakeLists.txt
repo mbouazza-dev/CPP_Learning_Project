@@ -14,12 +14,14 @@ add_executable(tower
 	src/img/media_path.hpp
 	src/img/stb_image.h
     src/aircraft_types.hpp
+	src/AircraftManager.cpp
+	src/AircraftManager.hpp
     src/aircraft.cpp
     src/aircraft.hpp
     src/airport_type.hpp
 	src/airport.hpp
 	src/config.hpp
-	src/geometry.hpp
+	src/Point.hpp
 	src/runway.hpp
 	src/terminal.hpp
 	src/tower_sim.cpp
@@ -28,8 +30,6 @@ add_executable(tower
 	src/tower.hpp
 	src/waypoint.hpp
 	src/main.cpp
-	src/AircraftManager.cpp
-	src/AircraftManager.hpp
 	src/AircraftFactory.hpp
 )
 

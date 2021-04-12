@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <map>
+#include <memory>
 
 class Airport;
 class Aircraft;
@@ -17,6 +18,7 @@ class Tower
 private:
     using AircraftToTerminal      = std::unordered_map<const Aircraft*, size_t>;
     using AircraftAndTerminalIter = AircraftToTerminal::iterator;
+    Tower(const Tower&) = delete;
 
     Airport& airport;
     // aircrafts may reserve a terminal
@@ -31,4 +33,8 @@ public:
     // produce instructions for aircraft
     WaypointQueue get_instructions(Aircraft& aircraft);
     void arrived_at_terminal(const Aircraft& aircraft);
+    WaypointQueue reserve_terminal(Aircraft& aircraft);
+    void update_terminals(Aircraft* aircraft);
+
+    friend class Airport;
 };

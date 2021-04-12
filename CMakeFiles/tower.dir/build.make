@@ -86,9 +86,22 @@ CMakeFiles/tower.dir/src/img/image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tower.dir/src/img/image.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mehdi/Bureau/C++/CPP_Learning_Project/src/img/image.cpp -o CMakeFiles/tower.dir/src/img/image.cpp.s
 
+CMakeFiles/tower.dir/src/AircraftManager.cpp.o: CMakeFiles/tower.dir/flags.make
+CMakeFiles/tower.dir/src/AircraftManager.cpp.o: src/AircraftManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tower.dir/src/AircraftManager.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/AircraftManager.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp
+
+CMakeFiles/tower.dir/src/AircraftManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tower.dir/src/AircraftManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp > CMakeFiles/tower.dir/src/AircraftManager.cpp.i
+
+CMakeFiles/tower.dir/src/AircraftManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tower.dir/src/AircraftManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp -o CMakeFiles/tower.dir/src/AircraftManager.cpp.s
+
 CMakeFiles/tower.dir/src/aircraft.cpp.o: CMakeFiles/tower.dir/flags.make
 CMakeFiles/tower.dir/src/aircraft.cpp.o: src/aircraft.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tower.dir/src/aircraft.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tower.dir/src/aircraft.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/aircraft.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/aircraft.cpp
 
 CMakeFiles/tower.dir/src/aircraft.cpp.i: cmake_force
@@ -101,7 +114,7 @@ CMakeFiles/tower.dir/src/aircraft.cpp.s: cmake_force
 
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: CMakeFiles/tower.dir/flags.make
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: src/tower_sim.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tower.dir/src/tower_sim.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tower.dir/src/tower_sim.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/tower_sim.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/tower_sim.cpp
 
 CMakeFiles/tower.dir/src/tower_sim.cpp.i: cmake_force
@@ -114,7 +127,7 @@ CMakeFiles/tower.dir/src/tower_sim.cpp.s: cmake_force
 
 CMakeFiles/tower.dir/src/tower.cpp.o: CMakeFiles/tower.dir/flags.make
 CMakeFiles/tower.dir/src/tower.cpp.o: src/tower.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tower.dir/src/tower.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tower.dir/src/tower.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/tower.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/tower.cpp
 
 CMakeFiles/tower.dir/src/tower.cpp.i: cmake_force
@@ -127,7 +140,7 @@ CMakeFiles/tower.dir/src/tower.cpp.s: cmake_force
 
 CMakeFiles/tower.dir/src/main.cpp.o: CMakeFiles/tower.dir/flags.make
 CMakeFiles/tower.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tower.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tower.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/main.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/main.cpp
 
 CMakeFiles/tower.dir/src/main.cpp.i: cmake_force
@@ -138,39 +151,26 @@ CMakeFiles/tower.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tower.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mehdi/Bureau/C++/CPP_Learning_Project/src/main.cpp -o CMakeFiles/tower.dir/src/main.cpp.s
 
-CMakeFiles/tower.dir/src/AircraftManager.cpp.o: CMakeFiles/tower.dir/flags.make
-CMakeFiles/tower.dir/src/AircraftManager.cpp.o: src/AircraftManager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mehdi/Bureau/C++/CPP_Learning_Project/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tower.dir/src/AircraftManager.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tower.dir/src/AircraftManager.cpp.o -c /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp
-
-CMakeFiles/tower.dir/src/AircraftManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tower.dir/src/AircraftManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp > CMakeFiles/tower.dir/src/AircraftManager.cpp.i
-
-CMakeFiles/tower.dir/src/AircraftManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tower.dir/src/AircraftManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mehdi/Bureau/C++/CPP_Learning_Project/src/AircraftManager.cpp -o CMakeFiles/tower.dir/src/AircraftManager.cpp.s
-
 # Object files for target tower
 tower_OBJECTS = \
 "CMakeFiles/tower.dir/src/GL/opengl_interface.cpp.o" \
 "CMakeFiles/tower.dir/src/img/image.cpp.o" \
+"CMakeFiles/tower.dir/src/AircraftManager.cpp.o" \
 "CMakeFiles/tower.dir/src/aircraft.cpp.o" \
 "CMakeFiles/tower.dir/src/tower_sim.cpp.o" \
 "CMakeFiles/tower.dir/src/tower.cpp.o" \
-"CMakeFiles/tower.dir/src/main.cpp.o" \
-"CMakeFiles/tower.dir/src/AircraftManager.cpp.o"
+"CMakeFiles/tower.dir/src/main.cpp.o"
 
 # External object files for target tower
 tower_EXTERNAL_OBJECTS =
 
 tower: CMakeFiles/tower.dir/src/GL/opengl_interface.cpp.o
 tower: CMakeFiles/tower.dir/src/img/image.cpp.o
+tower: CMakeFiles/tower.dir/src/AircraftManager.cpp.o
 tower: CMakeFiles/tower.dir/src/aircraft.cpp.o
 tower: CMakeFiles/tower.dir/src/tower_sim.cpp.o
 tower: CMakeFiles/tower.dir/src/tower.cpp.o
 tower: CMakeFiles/tower.dir/src/main.cpp.o
-tower: CMakeFiles/tower.dir/src/AircraftManager.cpp.o
 tower: CMakeFiles/tower.dir/build.make
 tower: /usr/lib/x86_64-linux-gnu/libglut.so
 tower: /usr/lib/x86_64-linux-gnu/libOpenGL.so

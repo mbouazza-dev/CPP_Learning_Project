@@ -1,12 +1,13 @@
 #pragma once
-
+#include <string>
+#include <iostream>
 #include "aircraft_types.hpp"
 #include "AircraftManager.hpp"
 
 class AircraftFactory
 {   
 private:
-    const std::string airlines[8] = { "AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY" };
+    std::string airlines[8] = { "AF", "LH", "EY", "DL", "KL", "BA", "AY", "EY" };
     std::vector<std::string> number_used;
     AircraftType* aircraft_types[3] {};
     
@@ -18,9 +19,9 @@ public:
         aircraft_types[2] = new AircraftType { .07f, .07f, .07f, MediaPath { "concorde_af.png" } };
     }
 
-    void create_aircraft(const AircraftType& type, Airport* airport, AircraftManager& aircraft_manager)
+    void create_aircraft(const AircraftType& type, Tower& tower, AircraftManager& aircraft_manager)
     {
-        assert(airport); // make sure the airport is initialized before creating aircraft
+        //assert(tower); // make sure the airport is initialized before creating aircraft
         std::string number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
         auto it = std::find(number_used.begin(), number_used.end(), number);
 
@@ -31,16 +32,28 @@ public:
         }
         
         add_flight_number(number);
-        aircraft_manager.add_aircraft(type, airport, number);
+        const std::string flight_number = number;
+        const float angle       = (rand() % 1000) * 2 * 3.141592f / 1000.f; // random angle between 0 and 2pi
+        const Point3D start     = Point3D { std::sin(angle), std::cos(angle), 0 } * 3 + Point3D { 0, 0, 2 };
+        const Point3D direction = (-start).normalize();
+        float fuel = 150 + ( std::rand() % (3000-150+1) );
+
+        std::unique_ptr<Aircraft> aircraft = std::make_unique<Aircraft>(type, flight_number, start, direction, tower, fuel);
+        aircraft_manager.add_aircraft(aircraft);
     }
 
-    void create_random_aircraft(Airport* airport, AircraftManager& aircraft_manager)
+    void create_random_aircraft(Tower& tower, AircraftManager& aircraft_manager)
     {
-        create_aircraft(*(aircraft_types[rand() % 3]), airport, aircraft_manager);
+        create_aircraft(*(aircraft_types[rand() % 3]), tower, aircraft_manager);
     }
 
     void add_flight_number(const std::string num)
     {
         number_used.emplace_back(num);
+    }
+
+    int aircrafts_count(std::string company)
+    {
+        return std::count_if(number_used.begin(), number_used.end(), [company](std::string number){return number.compare(0, 2, company, 0, 2) == 0;});
     }
 };

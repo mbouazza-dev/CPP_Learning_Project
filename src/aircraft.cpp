@@ -3,6 +3,7 @@
 #include "GL/opengl_interface.hpp"
 
 #include <cmath>
+#include <cassert>
 
 void Aircraft::turn_to_waypoint()
 {
@@ -76,7 +77,8 @@ void Aircraft::operate_landing_gear()
     }
 }
 
-void Aircraft::add_waypoint(const Waypoint& wp, const bool front)
+template<bool front>
+void Aircraft::add_waypoint(const Waypoint& wp)
 {
     if (front)
     {
@@ -90,9 +92,41 @@ void Aircraft::add_waypoint(const Waypoint& wp, const bool front)
 
 bool Aircraft::move()
 {
+    if (fuel<=0)
+    {
+        using namespace std::string_literals;
+        throw AircraftCrash { flight_number + " ran out of fuel"s };
+        return true;
+    }
     if (waypoints.empty())
     {
-        waypoints = control.get_instructions(*this);
+        //control.update_terminals();
+        if (!has_terminal())
+        {
+            waypoints = control.reserve_terminal(*this);
+            if (waypoints.empty())
+            {
+                auto front = false;
+                for (const auto& wp: control.get_instructions(*this))
+                {
+                    if (front)
+                        add_waypoint<true>(wp);
+                    else
+                        add_waypoint<false>(wp);
+                }
+            }
+        }
+        else
+        {
+            auto front = false;
+            for (const auto& wp: control.get_instructions(*this))
+            {
+                if (front)
+                        add_waypoint<true>(wp);
+                else
+                        add_waypoint<false>(wp);
+            }
+        }
     }
 
     if (!is_at_terminal)
@@ -100,6 +134,14 @@ bool Aircraft::move()
         turn_to_waypoint();
         // move in the direction of the current speed
         pos += speed;
+        fuel-=1;
+
+        if (fuel<=0)
+        {
+            using namespace std::string_literals;
+            throw AircraftCrash { flight_number + " ran out of fuel"s };
+            return true;
+        }
 
         // if we are close to our next waypoint, stike if off the list
         if (!waypoints.empty() && distance_to(waypoints.front()) < DISTANCE_THRESHOLD)
@@ -121,6 +163,7 @@ bool Aircraft::move()
             {
                 using namespace std::string_literals;
                 throw AircraftCrash { flight_number + " crashed into the ground"s };
+                return true;
             }
         }
         else
@@ -145,4 +188,21 @@ bool Aircraft::move()
 void Aircraft::display() const
 {
     type.texture.draw(project_2D(pos), { PLANE_TEXTURE_DIM, PLANE_TEXTURE_DIM }, get_speed_octant());
+}
+
+void Aircraft::refill(int& fuel_stock)
+{
+    auto amount = 3000-fuel;
+    if ((fuel_stock-amount)<0)
+    {
+        std::cout << "The airport does not have enough fuel !" << std::endl;
+        return;
+    }
+    else
+    {
+        fuel += amount;
+        fuel_stock-=amount;
+        std::cout << flight_number << " has been filled with " << amount << "T of fuel" << std::endl;
+        return;
+    }
 }
